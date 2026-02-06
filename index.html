@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Krishuuu ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+  text-align: center;
+}
+
+h1 {
+  color: #ff4d6d;
+  margin-top: 25px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.question {
+  margin: 40px;
+  position: relative;
+}
+
+button {
+  padding: 14px 30px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 15px;
+  min-height: 44px;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background: #999;
+  color: white;
+  position: absolute;
+}
+
+/* SLIDES */
+#slides {
+  display: none;
+  min-height: 100svh;
+  padding: 40px 20px;
+}
+
+.slide img {
+  width: 90%;
+  max-width: 400px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.slide p {
+  font-size: 1.3em;
+  margin-top: 20px;
+  color: #444;
+}
+
+.nextBtn {
+  margin-top: 25px;
+  background: #ff4d6d;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Krishuuu ❤️🎂</h1>
+
+<div id="mainContent">
+
+  <div class="gallery">
+    <img src="144CB4EB-75F5-442F-825E-D516DD936B32.jpeg">
+    <img src="6E22B2DE-E165-4F93-8AC7-2B608C1C2167.jpeg">
+    <img src="3D3A651C-081B-4746-ABCA-87A228058BB0.jpeg">
+    <img src="D04A16F9-7225-41B3-98A1-B9AD218E10B7.jpeg">
+    <img src="28C50317-E8DA-440A-9CB7-13B4A0020D58.jpeg">
+    <img src="97E86EA6-03F1-4FD5-ADF3-CB9E797E66CC.jpeg">
+    <img src="A510AE8B-48D8-4AD2-BF63-C4654F9D15F5.jpeg">
+    <img src="5306680E-54A0-4064-B7E6-B5BA332BD5C9.jpeg">
+    <img src="4532DCD8-D3D2-45CC-BCBF-060883370A0B.jpeg">
+    <img src="2F2E4A02-277A-4EB4-9523-F9453CAA1ACE.jpeg">
+  </div>
+
+  <div class="question">
+    <h2>Will you stay with me forever? 🥺❤️</h2>
+    <button id="yes" onclick="startSlides()">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+</div>
+
+<!-- SLIDES -->
+<div id="slides">
+  <div class="slide">
+    <img id="slideImg">
+    <p id="slideText"></p>
+    <button class="nextBtn" onclick="nextSlide()">Next ❤️</button>
+  </div>
+</div>
+
+<script>
+const slides = [
+  { img: "144CB4EB-75F5-442F-825E-D516DD936B32.jpeg", text: "From the first moment, you felt like home ❤️" },
+  { img: "6E22B2DE-E165-4F93-8AC7-2B608C1C2167.jpeg", text: "Every smile of yours makes my world brighter ✨" },
+  { img: "3D3A651C-081B-4746-ABCA-87A228058BB0.jpeg", text: "With you, even ordinary days feel special 💕" },
+  { img: "D04A16F9-7225-41B3-98A1-B9AD218E10B7.jpeg", text: "I love how perfectly imperfect we are together 🫶" },
+  { img: "28C50317-E8DA-440A-9CB7-13B4A0020D58.jpeg", text: "You are my favorite thought every single day 🌸" },
+  { img: "97E86EA6-03F1-4FD5-ADF3-CB9E797E66CC.jpeg", text: "No matter what comes, I choose you 💖" },
+  { img: "A510AE8B-48D8-4AD2-BF63-C4654F9D15F5.jpeg", text: "Your happiness means everything to me 🥰" },
+  { img: "5306680E-54A0-4064-B7E6-B5BA332BD5C9.jpeg", text: "Thank you for being my safe place ❤️" },
+  { img: "4532DCD8-D3D2-45CC-BCBF-060883370A0B.jpeg", text: "I promise to stand by you, always 🤞" },
+  { img: "2F2E4A02-277A-4EB4-9523-F9453CAA1ACE.jpeg", text: "Happy Birthday, my love — forever starts with us 🎂❤️" }
+];
+
+let index = 0;
+
+function startSlides() {
+  document.getElementById("mainContent").style.display = "none";
+  document.getElementById("slides").style.display = "block";
+  showSlide();
+}
+
+function showSlide() {
+  slideImg.src = slides[index].img;
+  slideText.innerText = slides[index].text;
+}
+
+function nextSlide() {
+  if (index < slides.length - 1) {
+    index++;
+    showSlide();
+  } else {
+    slideText.innerText = "I love you endlessly, Krishuuu ❤️";
+  }
+}
+
+// iPhone-safe NO button movement
+const noBtn = document.getElementById("no");
+
+function moveNo() {
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * 120;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+</script>
+
+</body>
+</html>
